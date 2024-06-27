@@ -2,7 +2,7 @@ using UnityEngine;
 /// <summary>
 /// MainPlayerAniBase는 IMainPlayerAni 인터페이스를 구현하는 추상클래스입니다.
 /// </summary>
-public abstract class MainPlayerAniBase : MonoBehaviour, IMainPlayerAni
+public abstract class MainPlayerAniBase : MonoBehaviour, IPlayerAni
 {
     /// <summary>
     /// 플레이어의 Idle 애니메이션 재생 메서드입니다.
