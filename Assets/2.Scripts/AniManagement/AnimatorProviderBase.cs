@@ -14,7 +14,7 @@ public interface IAnimatorProvider
 /// <summary>
 /// AnimatorProviderBase는 IAnimatorProvider 인터페이스를 구현하는 추상 클래스입니다.
 /// </summary>
-public abstract class AnimatorProviderBase : MonoBehaviour
+public abstract class AnimatorProviderBase : MonoBehaviour, IAnimatorProvider
 {
     /// <summary>
     /// 애니메이터를 가져오는 메서드입니다.
