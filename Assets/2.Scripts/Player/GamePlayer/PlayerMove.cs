@@ -11,6 +11,7 @@ public class PlayerMove : PlayerMoveBase
     private float walkSpeed = 3f;
     [SerializeField]
     private float runSpeed = 5f;
+    private bool isRunning = false;
 
     private void Awake()
     {
@@ -28,7 +29,8 @@ public class PlayerMove : PlayerMoveBase
     {
         if (moveInput.sqrMagnitude > 0.01f)
         {
-            Move(walkSpeed);
+            float speed = isRunning ? runSpeed : walkSpeed;
+            Move(speed);
         }
         else
         {
@@ -38,9 +40,9 @@ public class PlayerMove : PlayerMoveBase
 
     public override void Move(float speed)
     {
-        // 로컬 방향으로 이동 벡터 계산
-        Vector3 localMovement = transform.TransformDirection(new Vector3(moveInput.x, 0, moveInput.y)) * speed;
-        rb.velocity = new Vector3(localMovement.x, rb.velocity.y, localMovement.z);
+        // 글로벌 방향으로 이동 벡터 계산
+        Vector3 globalMovement = new Vector3(moveInput.x, 0, moveInput.y) * speed;
+        rb.velocity = new Vector3(globalMovement.x, rb.velocity.y, globalMovement.z);
     }
 
     public void OnMove(InputValue value)
@@ -50,9 +52,6 @@ public class PlayerMove : PlayerMoveBase
 
     public void OnRun(InputValue value)
     {
-        if (value.isPressed)
-        {
-            Move(runSpeed);
-        }
+        isRunning = value.isPressed;
     }
 }
