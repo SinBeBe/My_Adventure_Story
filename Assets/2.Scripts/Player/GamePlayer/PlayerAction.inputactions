@@ -17,8 +17,8 @@
                 {
                     "name": "Run",
                     "type": "Value",
-                    "id": "dde38c85-5c69-4ac2-bdc1-cc1d3a8453bb",
-                    "expectedControlType": "Vector2",
+                    "id": "460061b7-aa66-401b-a268-6587efd797a2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -81,26 +81,15 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Shift",
-                    "id": "590f33a6-b163-4080-a3cd-9fa48892d658",
-                    "path": "OneModifier",
+                    "name": "",
+                    "id": "8eab1a41-07d6-4199-b50f-60649a871ad8",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Run",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "binding",
-                    "id": "75420e19-537c-43f5-a14f-10484ca0963d",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Run",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
