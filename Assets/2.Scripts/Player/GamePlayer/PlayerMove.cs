@@ -1,67 +1,71 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// PlayerMove는 플레이어의 움직임을 구현하는 클래스입니다.
-/// </summary>
 public class PlayerMove : PlayerMoveBase
 {
-    private IRigidbodyProvider rigidbodyProvider;
-    private PlayerRotationBase playerRotation;
-    private Rigidbody rb;
-    private Vector2 moveInput;
-    private bool isRunning;
+    private IAnimatorProvider animatorProvider;
+    private ICharacterController characterControllerProvider;
+    private Animator animator;
+    private Camera cam;
+    private CharacterController characterController;
 
-    [SerializeField]
-    private float walkSpeed = 3f;
-    [SerializeField]
-    private float runSpeed = 5f;
+    private float speed = 2f;
+    private float runSpeed = 4f;
+    private float smoothness = 10f;
+
+    private Vector2 moveInput;
+    private bool isRun;
+    private bool isToggleCameraRotation;
 
     private void Awake()
     {
-        // IRigidbodyProvider 컴포넌트를 가져옴
-        rigidbodyProvider = GetComponent<IRigidbodyProvider>();
-        if (rigidbodyProvider == null)
-        {
-            Debug.LogWarning("IRigidbodyProvider component is missing.");
-            return;
-        }
-
-        // Rigidbody를 IRigidbodyProvider에서 가져옴
-        rb = rigidbodyProvider.GetRigidbody();
-
-        playerRotation = GetComponent<PlayerRotationBase>();
+        animatorProvider = GetComponent<IAnimatorProvider>();
+        characterControllerProvider = GetComponent<ICharacterController>();
+        animator = animatorProvider.GetAnimator();
+        cam = Camera.main;
+        characterController = characterControllerProvider.GetCharacterController();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        // 입력 벡터의 크기가 일정 수준 이상일 때만 이동
         if (moveInput.sqrMagnitude > 0.01f)
         {
-            float speed = isRunning ? runSpeed : walkSpeed;
-            Move(speed);
+            Move(moveInput, isRun, isToggleCameraRotation);
         }
-        else
+    }
+
+    public override void Move(Vector2 moveInput, bool isRun, bool isToggleCameraRotation)
+    {
+        float finalSpeed = isRun ? runSpeed : speed;
+
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
+        characterController.Move(moveDirection * finalSpeed * Time.deltaTime);
+
+        float percent = (isRun ? 1 : 0.5f) * moveDirection.magnitude;
+        animator.SetFloat("Blend", percent, 0.1f, Time.deltaTime);
+
+        if (!isToggleCameraRotation)
         {
-            rb.velocity = Vector3.zero;
+            Vector3 playerRotate = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1));
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerRotate), Time.deltaTime * smoothness);
         }
     }
 
-    public override void Move(float speed)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        Vector3 localMovement = new Vector3(moveInput.x, 0, moveInput.y);
-        Vector3 globalMovement = transform.TransformDirection(localMovement) * speed;
-        rb.velocity = new Vector3(globalMovement.x, rb.velocity.y, globalMovement.z);
+        moveInput = context.ReadValue<Vector2>();
     }
 
-    public void OnMove(InputValue value)
+    public void OnRun(InputAction.CallbackContext context)
     {
-        moveInput = value.Get<Vector2>();
-        playerRotation.Rotation(moveInput);
+        isRun = context.ReadValueAsButton();
     }
 
-    public void OnRun(InputValue value)
+    public void OnToggleCameraRotation(InputAction.CallbackContext context)
     {
-        isRunning = value.isPressed;
+        isToggleCameraRotation = context.ReadValueAsButton();
     }
 }

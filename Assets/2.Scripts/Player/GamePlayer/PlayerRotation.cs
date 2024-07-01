@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// PlayerRotation은 플레이어의 회전을 구현하는 클래스입니다.
-/// </summary>
 public class PlayerRotation : PlayerRotationBase
 {
     [SerializeField]

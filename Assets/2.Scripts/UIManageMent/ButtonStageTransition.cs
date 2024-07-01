@@ -2,40 +2,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// ButtonStageTransitionÀº StageTransitionBase¸¦ »ó¼Ó¹Þ¾Æ ¹öÆ° Å¬¸¯ ½Ã ½ºÅ×ÀÌÁö¸¦ ÀüÈ¯ÇÕ´Ï´Ù.
-/// </summary>
 public class ButtonStageTransition : StageTransitionBase
 {
     [SerializeField]
     private Button transitionButton;
 
-    /// <summary>
-    /// ÃÊ±âÈ­ ¸Þ¼­µå
-    /// </summary>
+
     private void Start()
     {
-        //¹öÆ° Å¬¸¯ ÀÌº¥Æ®¿¡ OnButtonClick ¸Þ¼­µå¸¦ ¿¬°á
         if(transitionButton != null)
         {
             transitionButton.onClick.AddListener(OnButtonClick);
         }
     }
 
-    /// <summary>
-    /// ¹öÆ° Å¬¸¯½Ã È£ÃâµÇ´Â ÀÌº¥Æ®
-    /// </summary>
     protected override void OnButtonClick()
     {
         TransitionToNextStage();
     }
 
-    /// <summary>
-    /// ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀüÈ¯ÇÏ´Â ¸Þ¼­µå
-    /// </summary>
     public override void TransitionToNextStage()
     {
-        //ÇöÀç ¾À ÀÎµ¦½º¸¦ °¡Á®¿À°í, ´ÙÀ½ ¾ÀÀ¸·Î ÀüÈ¯
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
     }

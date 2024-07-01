@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// RigidbodyProvider는 RigidbodyProviderBase를 상속받아 Rigidbody를 제공합니다.
-/// </summary>
 public class RigidbodyProvider : RigidbodyProviderBase
 {
     [SerializeField]
