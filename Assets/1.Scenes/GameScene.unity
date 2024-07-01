@@ -19287,19 +19287,7 @@ MonoBehaviour:
     m_ActionId: 460061b7-aa66-401b-a268-6587efd797a2
     m_ActionName: PlayerActions/Run[/Keyboard/leftShift]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1179229243}
-        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-        m_MethodName: OnToggleCameraRotation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 50d3776f-9739-46aa-86f1-30cb6790cbf7
     m_ActionName: PlayerActions/ToggleCameraRotation[/Keyboard/leftAlt]
   m_NeverAutoSwitchControlSchemes: 0
@@ -19334,7 +19322,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1179229248
 MonoBehaviour:
