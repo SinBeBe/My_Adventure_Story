@@ -6,17 +6,16 @@ public class MainCamera : CameraBase
     private Transform objectTofollow;
     [SerializeField]
     private Transform realCamera;
-    [SerializeField]
+
     private Vector3 dirNormalized;
-    [SerializeField]
     private Vector3 finalDir;
 
     private float followSpeed = 10f;
     private float sensitivity = 100f;
     private float clampAngle = 70f;
     private float smoothness = 10f;
-    private float minDistance;
-    private float maxDistance;
+    private float minDistance = 1f;
+    private float maxDistance = 2f;
     private float finalDistance;
 
     private float rotX;
@@ -24,8 +23,8 @@ public class MainCamera : CameraBase
 
     private void Start()
     {
-        rotX = transform.localRotation.eulerAngles.x;
-        rotY = transform.localRotation.eulerAngles.y;
+        rotX = transform.localRotation.x;
+        rotY = transform.localRotation.y;
 
         dirNormalized = realCamera.localPosition.normalized;
         finalDistance = realCamera.localPosition.magnitude;
