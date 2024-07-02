@@ -14,6 +14,7 @@ public class PlayerMove : PlayerMoveBase
     private float smoothness = 10f;
 
     private Vector2 moveInput;
+    private Vector2 runInput;
     private bool isRun;
     private bool isToggleCameraRotation;
 
@@ -47,17 +48,25 @@ public class PlayerMove : PlayerMoveBase
         float percent = (isRun ? 1 : 0.5f) * moveDirection.magnitude;
         animator.SetFloat("Blend", percent, 0.1f, Time.deltaTime);
 
-        Vector3 playerRotate = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerRotate), Time.deltaTime * smoothness);
+        if(!isToggleCameraRotation)
+        {
+            Vector3 playerRotate = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1));
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerRotate), Time.deltaTime * smoothness);
+        }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext value)
     {
-        moveInput = context.ReadValue<Vector2>();
+        moveInput = value.ReadValue<Vector2>(); 
     }
 
-    public void OnRun(InputAction.CallbackContext context)
+    public void OnRun(InputAction.CallbackContext value)
     {
-        isRun = context.ReadValueAsButton();
+        isRun = value.ReadValueAsButton();
+    }
+    
+    public void OnFreeCamera(InputAction.CallbackContext value)
+    {
+        isToggleCameraRotation = value.ReadValueAsButton();
     }
 }

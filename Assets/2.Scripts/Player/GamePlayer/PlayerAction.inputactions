@@ -16,17 +16,17 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Button",
-                    "id": "460061b7-aa66-401b-a268-6587efd797a2",
-                    "expectedControlType": "Button",
+                    "type": "Value",
+                    "id": "666e80aa-fa33-4875-8372-873bdeec1e40",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "ToggleCameraRotation",
+                    "name": "FreeCamera",
                     "type": "Button",
-                    "id": "50d3776f-9739-46aa-86f1-30cb6790cbf7",
+                    "id": "3ad84742-f0f0-492f-9956-6f4bc6944dd4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -91,23 +91,23 @@
                 },
                 {
                     "name": "",
-                    "id": "8eab1a41-07d6-4199-b50f-60649a871ad8",
+                    "id": "f3df4316-597d-4e42-a843-ca278e17aba4",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b2d652c2-f6ae-4e00-bf66-4205c710c231",
+                    "id": "74455768-cd99-4057-9f54-aa4aa500c3b6",
                     "path": "<Keyboard>/leftAlt",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "ToggleCameraRotation",
+                    "groups": "PC",
+                    "action": "FreeCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
