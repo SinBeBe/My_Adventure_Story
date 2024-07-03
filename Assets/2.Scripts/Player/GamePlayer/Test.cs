@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
         animator = GetComponent<Animator>();
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = true; // 초기 상태 설정
+        rb.useGravity = true;
     }
 
     private void Update()
@@ -50,7 +50,6 @@ public class Test : MonoBehaviour
 
     void Move()
     {
-        // WASD 키 입력에 따라 이동 방향 결정
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -59,17 +58,14 @@ public class Test : MonoBehaviour
         {
             moveDirection.Normalize();
 
-            // 걷기와 달리기 속도 설정
             float finalSpeed = isRun ? runSpeed : speed;
             rb.MovePosition(transform.position + moveDirection * finalSpeed * Time.deltaTime);
 
-            // 애니메이터 설정
             float percent = (isRun ? 1 : 0.5f) * moveDirection.magnitude;
             animator.SetFloat("Blend", percent, 0.1f, Time.deltaTime);
         }
         else
         {
-            // 애니메이터 정지 설정
             animator.SetFloat("Blend", 0, 0.1f, Time.deltaTime);
         }
     }

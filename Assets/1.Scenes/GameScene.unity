@@ -18981,7 +18981,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179229242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6036d79933a170458c73274b8d3c0c4, type: 3}
   m_Name: 
@@ -18999,7 +18999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 8a8908d87b1f6934f9209e418573069d, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -19076,7 +19076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925e7fc28e4e9ea41be24765c07f37f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1179229256}
 --- !u!114 &1179229250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19089,20 +19089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3788234839237e47ab9732911959ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
---- !u!114 &1179229251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179229242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436c06b38f009c64babb2921a239fabe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  animator: {fileID: 1179229254}
 --- !u!114 &1179229253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19110,7 +19097,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179229242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18507bbf26886a049a26f4203cfc3368, type: 3}
   m_Name: 

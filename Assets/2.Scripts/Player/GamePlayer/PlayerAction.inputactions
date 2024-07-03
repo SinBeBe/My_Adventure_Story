@@ -16,21 +16,21 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "666e80aa-fa33-4875-8372-873bdeec1e40",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FreeCamera",
+                    "name": "ToggleCameraRotation",
                     "type": "Button",
                     "id": "3ad84742-f0f0-492f-9956-6f4bc6944dd4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "FreeCamera",
+                    "action": "ToggleCameraRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
