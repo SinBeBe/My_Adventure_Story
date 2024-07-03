@@ -18974,18 +18974,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4132312772176831909, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
   m_PrefabInstance: {fileID: 1179229240}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1179229243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179229242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6036d79933a170458c73274b8d3c0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1179229244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19013,7 +19001,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1179229253}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Test, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -19029,7 +19017,7 @@ MonoBehaviour:
     m_ActionName: PlayerActions/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1179229243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
         m_MethodName: OnRun
         m_Mode: 0
@@ -19045,7 +19033,7 @@ MonoBehaviour:
     m_ActionName: PlayerActions/Run[/Keyboard/leftShift]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1179229243}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
         m_MethodName: OnFreeCamera
         m_Mode: 0
@@ -19090,18 +19078,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1179229254}
---- !u!114 &1179229253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179229242}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18507bbf26886a049a26f4203cfc3368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1179229254
 Animator:
   serializedVersion: 5
@@ -19139,6 +19115,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1179229257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179229242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18507bbf26886a049a26f4203cfc3368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1182946316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4631977158232566, guid: 6dcae7204dd466c4c862bc640ea7c02e, type: 3}

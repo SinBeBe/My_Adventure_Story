@@ -1,19 +1,12 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMove : PlayerMoveBase
 {
+    Animator animator;
+    Camera cam;
+    Rigidbody rb;
+
     RaycastHit hit;
-
-    private IAnimatorProvider animatorProvider;
-    private IRigidbodyProvider rigidbodyProvider;
-
-    private Animator animator;
-    private Rigidbody rb;
-
-    private Vector2 moveInput;
-
-    private Camera cam;
 
     private float speed = 2f;
     private float runSpeed = 2.5f;
@@ -24,18 +17,19 @@ public class PlayerMove : PlayerMoveBase
 
     private void Start()
     {
-        animatorProvider = GetComponent<IAnimatorProvider>();
-        rigidbodyProvider = GetComponent<IRigidbodyProvider>();
-
-        animator = animatorProvider.GetAnimator();
-        rb = rigidbodyProvider.GetRigidbody();
+        animator = GetComponent<Animator>();
         cam = Camera.main;
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
     }
 
     private void Update()
     {
-        Move();
+        isToggleCameraRotation = Input.GetKey(KeyCode.LeftAlt);
+        isRun = Input.GetKey(KeyCode.LeftShift) && (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0);
+
         HandleGravity();
+        Move();
     }
 
     private void LateUpdate()
@@ -46,36 +40,6 @@ public class PlayerMove : PlayerMoveBase
         }
     }
 
-    public override void Move()
-    {
-        Vector3 forward = transform.TransformDirection(transform.forward);
-        Vector3 rigit = transform.TransformDirection(transform.right);
-
-        Vector3 movement = forward * moveInput.x + rigit * moveInput.y;
-
-        if(movement.sqrMagnitude > 0.01f)
-        {
-            movement.Normalize();
-
-            float finalSpeed = isRun ? runSpeed : speed;
-            rb.MovePosition(transform.position + movement * finalSpeed * Time.deltaTime);
-
-            float percent = (isRun ? 1f : 0.5f) * movement.magnitude;
-            animator.SetFloat("Blend", percent, 0.1f, Time.deltaTime);
-        }
-        else
-        {
-            animator.SetFloat("Blend", 0f, 0.1f, Time.deltaTime);
-        }
-    }
-
-
-    void RotateWithCamera()
-    {
-        Vector3 playerRotate = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerRotate), Time.deltaTime * smoothness);
-    }
-
     void HandleGravity()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.1f))
@@ -84,20 +48,31 @@ public class PlayerMove : PlayerMoveBase
         }
     }
 
-    public void OnMove(InputValue value)
+    public override void Move()
     {
-        moveInput = value.Get<Vector2>();
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        Vector3 moveDirection = forward * Input.GetAxisRaw("Vertical") + right * Input.GetAxisRaw("Horizontal");
+        if (moveDirection.sqrMagnitude > 0.01f)
+        {
+            moveDirection.Normalize();
+
+            float finalSpeed = isRun ? runSpeed : speed;
+            rb.MovePosition(transform.position + moveDirection * finalSpeed * Time.deltaTime);
+
+            float percent = (isRun ? 1 : 0.5f) * moveDirection.magnitude;
+            animator.SetFloat("Blend", percent, 0.1f, Time.deltaTime);
+        }
+        else
+        {
+            animator.SetFloat("Blend", 0, 0.1f, Time.deltaTime);
+        }
     }
 
-    public void OnRun(InputValue value)
+    void RotateWithCamera()
     {
-        float runValue = value.Get<float>();
-        isRun = runValue > 0 && (moveInput.x != 0 || moveInput.y != 0);
-    }
-    
-    public void OnToggleCameraRotation(InputValue value)
-    {
-        float toggleValue = value.Get<float>();
-        isToggleCameraRotation = toggleValue > 0;
+        Vector3 playerRotate = Vector3.Scale(cam.transform.forward, new Vector3(1, 0, 1));
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerRotate), Time.deltaTime * smoothness);
     }
 }
