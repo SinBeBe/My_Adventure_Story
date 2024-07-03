@@ -1,5 +1,5 @@
 using UnityEngine;
-public abstract class MainPlayerAniBase : MonoBehaviour, IPlayerAni
+public abstract class MainPlayerAniBase : MonoBehaviour, ICharacterAni
 {
     public abstract void PlayIdleAni();
 

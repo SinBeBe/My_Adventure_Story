@@ -1,5 +1,5 @@
 using UnityEngine;
-public interface IPlayerAni
+public interface ICharacterAni
 {
     void PlayIdleAni();
 }
