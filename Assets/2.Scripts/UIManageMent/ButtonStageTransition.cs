@@ -23,7 +23,6 @@ public class ButtonStageTransition : StageTransitionBase
 
     public override void TransitionToNextStage()
     {
-        //���� �� �ε����� ��������, ���� ������ ��ȯ
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
     }

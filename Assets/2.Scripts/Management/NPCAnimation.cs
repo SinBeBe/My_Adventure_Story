@@ -1,11 +1,12 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class NPCAnimation : NPCAnimationBase
 {
-    private Animator animator;
-
     [SerializeField]
-    private string aniName;
+    private AnimationClip clip;
+
+    private Animator animator;
 
     private void Awake()
     {
@@ -19,6 +20,6 @@ public class NPCAnimation : NPCAnimationBase
 
     public override void PlayIdleAni()
     {
-        animator.Play(aniName);
+        animator.Play(clip.name);
     }
 }

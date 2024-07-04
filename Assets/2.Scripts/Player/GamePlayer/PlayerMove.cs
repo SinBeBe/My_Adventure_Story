@@ -19,7 +19,7 @@ public class PlayerMove : PlayerMoveBase
     {
         animator = GetComponent<Animator>();
         cam = Camera.main;
-        rb = GetComponent<Rigidbody>();
+        rb = this.GetComponent<Rigidbody>();
         rb.useGravity = true;
     }
 
@@ -42,9 +42,11 @@ public class PlayerMove : PlayerMoveBase
 
     void HandleGravity()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.1f))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 0.01f))
         {
-            rb.useGravity = hit.collider == null;
+            bool isCollider = hit.collider;
+
+            rb.useGravity = !isCollider ? true : false;
         }
     }
 
