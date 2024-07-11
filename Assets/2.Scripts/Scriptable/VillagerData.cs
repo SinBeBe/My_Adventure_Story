@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class VillagerData : MonoBehaviour
+[CreateAssetMenu(fileName = "Villager Data", menuName = "Scriptable Object/Villager Data", order = int.MaxValue)]
+public class VillagerData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private bool isClear;
+    public bool IsClear {  get { return isClear; } }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private string questText;
+    public string QuestText { get { return questText; } }
 }

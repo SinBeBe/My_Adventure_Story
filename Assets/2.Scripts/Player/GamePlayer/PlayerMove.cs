@@ -8,7 +8,7 @@ public class PlayerMove : PlayerMoveBase
 
     RaycastHit hit;
 
-    private float speed = 2f;
+    private float speed = 4f;
     private float runSpeed = 2.5f;
     private float smoothness = 10f;
 
