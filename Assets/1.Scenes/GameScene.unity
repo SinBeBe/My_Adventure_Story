@@ -2932,7 +2932,7 @@ GameObject:
   - component: {fileID: 289127532}
   - component: {fileID: 289127531}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: QuestText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2990,7 +2990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Quest : contain'
+  m_Text: "Quest : \uC5C6\uC74C"
 --- !u!222 &289127532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17157,6 +17157,7 @@ MonoBehaviour:
   questText: {fileID: 91101329}
   rewardText: {fileID: 2103125379}
   villagerData: {fileID: 11400000, guid: e2b3b630d4e901d49b572d98b88eafb3, type: 2}
+  questContain: {fileID: 1179229243}
 --- !u!1001 &706453049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20173,6 +20174,7 @@ GameObject:
   - component: {fileID: 1081734535}
   - component: {fileID: 1081734537}
   - component: {fileID: 1081734536}
+  - component: {fileID: 1081734538}
   m_Layer: 5
   m_Name: AcceptButton
   m_TagString: Untagged
@@ -20238,6 +20240,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081734534}
   m_CullTransparentMesh: 1
+--- !u!114 &1081734538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081734534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1081734536}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1179229247}
+        m_TargetAssemblyTypeName: ClickQuestButton, Assembly-CSharp
+        m_MethodName: ClickButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1092185804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21972,13 +22030,51 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8073086772555192299, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 73211171}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4132312772176831909, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1179229243}
+    - targetCorrespondingSourceObject: {fileID: 4132312772176831909, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1179229247}
   m_SourcePrefab: {fileID: 100100000, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
 --- !u!4 &1179229241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8073086772555192299, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
   m_PrefabInstance: {fileID: 1179229240}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1179229242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4132312772176831909, guid: 64b182395c0b6744a920c74bce3ece13, type: 3}
+  m_PrefabInstance: {fileID: 1179229240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179229243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179229242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddae09046fb404f4c8059632908f7d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerQuestText: {fileID: 289127531}
+--- !u!114 &1179229247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179229242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c172560c22a2d43b114d9ad300e675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questUI: {fileID: 574626029}
+  questContain: {fileID: 1179229243}
 --- !u!4 &1182946316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4631977158232566, guid: 6dcae7204dd466c4c862bc640ea7c02e, type: 3}
@@ -28872,6 +28968,7 @@ MonoBehaviour:
   questText: {fileID: 91101329}
   rewardText: {fileID: 2103125379}
   villagerData: {fileID: 11400000, guid: eb7b5b15ed7c71846baddcd9d3558c22, type: 2}
+  questContain: {fileID: 1179229243}
 --- !u!1001 &1391342043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36080,6 +36177,7 @@ GameObject:
   - component: {fileID: 1799043315}
   - component: {fileID: 1799043317}
   - component: {fileID: 1799043316}
+  - component: {fileID: 1799043318}
   m_Layer: 5
   m_Name: UnacceptButton
   m_TagString: Untagged
@@ -36145,6 +36243,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799043314}
   m_CullTransparentMesh: 1
+--- !u!114 &1799043318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799043314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1799043316}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1179229247}
+        m_TargetAssemblyTypeName: ClickQuestButton, Assembly-CSharp
+        m_MethodName: ClickButtons
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1830501524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36274,6 +36428,7 @@ MonoBehaviour:
   questText: {fileID: 91101329}
   rewardText: {fileID: 2103125379}
   villagerData: {fileID: 11400000, guid: 9f86fefadb3a26948b725fcc3537c84b, type: 2}
+  questContain: {fileID: 1179229243}
 --- !u!1001 &1853389370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41770,7 +41925,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -43141,6 +43296,7 @@ MonoBehaviour:
   questText: {fileID: 91101329}
   rewardText: {fileID: 2103125379}
   villagerData: {fileID: 11400000, guid: c8f29f2431b11304cb3b759b77c053f9, type: 2}
+  questContain: {fileID: 1179229243}
 --- !u!1001 &2056244956
 PrefabInstance:
   m_ObjectHideFlags: 0

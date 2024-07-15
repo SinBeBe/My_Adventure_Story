@@ -24,6 +24,9 @@ public class Villager : VillagerBase
     
     public VillagerData VillagerData { set { villagerData = value; } }
 
+    [SerializeField]
+    private QuestContain questContain;
+
     private float radius = 3f;
 
     private void Update()
@@ -47,7 +50,8 @@ public class Villager : VillagerBase
                 rewardText.text = "Reward : " + villagerData.RewradString;
 
                 UpdateCursor(true, CursorLockMode.None);
-
+                questContain.SetVillagerData(villagerData);
+                
                 OnOff(questUI, true);
             }
         }

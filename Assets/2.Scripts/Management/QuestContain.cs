@@ -1,15 +1,27 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QuestContain : ContainBase
 {
     [SerializeField]
-    private Text questText;
-    [SerializeField]
     private Text playerQuestText;
 
-    public override void TextContain(Text get, ref Text set)
+    private string questStr;
+
+    public void SetVillagerData(VillagerData Data)
     {
-        base.TextContain(get, ref set);
+        questStr = Data.QuestString;
+    }
+
+    public void StrText(ref string str, ref Text text)
+    {
+        str = questStr;
+        text = playerQuestText;
+    }
+
+    public override void StrTextContain(string get, ref Text set)
+    {
+        set.text = "Quest : " + get;
     }
 }

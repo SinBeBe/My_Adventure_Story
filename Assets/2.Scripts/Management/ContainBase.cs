@@ -22,4 +22,9 @@ public abstract class ContainBase : MonoBehaviour, IContain
     {
         set = get;
     }
+
+    public virtual void StrTextContain(string get, ref Text set)
+    {
+        set.text = get;
+    }
 }
