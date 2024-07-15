@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/2D%20Character%20Stick%20001/UI%20Toolkit/CharCtrlDisplay.uss?fileID=7433441132597879392&amp;guid=33244ff7bf9220c4ca9cbb13800f1bff&amp;type=3#CharCtrlDisplay" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; max-width: 300px; min-width: 310px; max-height: 200px; min-height: 200px; width: 300px; height: 200px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; background-color: rgba(255, 255, 255, 0.35);">
+        <ui:Label tabindex="-1" text="Movement: WASD&#10;&#10;Jump: Space&#10;&#10;Walk/Run: Left Shift&#10;&#10;Attack: Mouse Left Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 20px; -unity-font-style: bold; background-color: rgba(255, 255, 255, 0);" />
+    </ui:VisualElement>
+</ui:UXML>
