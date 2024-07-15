@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Villager1
   m_EditorClassIdentifier: 
   isClear: 0
-  questText: "\uAC15\uC544\uC9C0 \uCC3E\uAE30"
+  questString: "\uAC15\uC544\uC9C0 \uCC3E\uAE30"
+  rewradString: "500G, HP\uD68C\uBCF5 \uBB3C\uC57D(\uC18C)"

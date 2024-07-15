@@ -5,9 +5,13 @@ public class VillagerData : ScriptableObject
 {
     [SerializeField]
     private bool isClear;
-    public bool IsClear {  get { return isClear; } }
+    public bool IsClear {  get { return isClear; } set { IsClear = value; } }
 
     [SerializeField]
-    private string questText;
-    public string QuestText { get { return questText; } }
+    private string questString;
+    public string QuestString { get { return questString; } }
+
+    [SerializeField]
+    private string rewradString;
+    public string RewradString { get {return rewradString; } }
 }
