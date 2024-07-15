@@ -29,8 +29,7 @@ public class MainCamera : CameraBase
         dirNormalized = realCamera.localPosition.normalized;
         finalDistance = realCamera.localPosition.magnitude;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        UpdateCursor(false, CursorLockMode.Locked);
     }
 
     private void Update()

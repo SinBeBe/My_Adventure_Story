@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,12 +26,6 @@ public class Villager : VillagerBase
 
     private float radius = 3f;
 
-    private void Start()
-    {
-        questText.text = villagerData.QuestString;
-        rewardText.text = villagerData.RewradString;
-    }
-
     private void Update()
     {
         if(!villagerData.IsClear)
@@ -45,7 +40,16 @@ public class Villager : VillagerBase
         Collider[] colliders = Physics.OverlapSphere(pos.position, radius, interactLayer);
         foreach(Collider collider in colliders)
         {
-            
+            Debug.Log("Interaction");
+            if (Input.GetKey(KeyCode.F))
+            {
+                questText.text = "Quest : " + villagerData.QuestString;
+                rewardText.text = "Reward : " + villagerData.RewradString;
+
+                UpdateCursor(true, CursorLockMode.None);
+
+                OnOff(questUI, true);
+            }
         }
     }
 
