@@ -19,6 +19,11 @@ public abstract class ContainBase : MonoBehaviour, IContain
         set = get;
     }
 
+    public virtual void BoolContain(bool get, ref bool set)
+    {
+        set = get;
+    }
+
     public virtual void TextContain(Text get, ref Text set)
     {
         set = get;
