@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Slot
+public class SlotBase : MonoBehaviour
 {
     [SerializeField]
     private Image image;
@@ -13,7 +13,7 @@ public class Slot
         set
         {
             itemData = value;
-            if (itemData != null) 
+            if (itemData != null)
             {
                 image.sprite = ItemData.ItemImage;
             }
