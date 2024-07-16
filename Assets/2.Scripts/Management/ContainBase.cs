@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,5 +27,31 @@ public abstract class ContainBase : MonoBehaviour, IContain
     public virtual void StrTextContain(string get, ref Text set)
     {
         set.text = get;
+    }
+
+    public virtual void ItemContain(ItemData get, ref List<ItemData> set)
+    {
+        set.Add(get);
+    }
+
+    public virtual void SlotContain(SlotBase get, ref List<SlotBase> set)
+    {
+        set.Add(get);
+    }
+
+    public virtual void ItemsContain(List<ItemData> get, ref List<ItemData> set)
+    {
+        for(int i = 0; i < get.Count; i++)
+        {
+            set[i] = get[i];
+        }
+    }
+
+    public virtual void SlotsContain(List<SlotBase> get, ref List<SlotBase> set)
+    {
+        for (int i = 0; i < get.Count; i++)
+        {
+            set[i] = get[i];
+        }
     }
 }

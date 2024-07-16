@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5714732a29a75d04ca21e71a00da8191, type: 3}
   m_Name: StrongIronArmor
   m_EditorClassIdentifier: 
-  itemName: IronArmor
-  itemImage: {fileID: 21300000, guid: 90618c52abe9df54ca2fb30c4dc09263, type: 3}
+  itemName: StrongIronArmor
+  itemImage: {fileID: 21300000, guid: 567fdd2e557fefc478f8aaa7ae56fb11, type: 3}
+  itemEnhancement: 0

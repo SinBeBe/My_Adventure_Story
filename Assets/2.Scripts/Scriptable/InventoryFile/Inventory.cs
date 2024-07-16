@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class Inventory : InventoryBase
 {
-    [SerializeField]
-    private List<ItemData> items;
 
     [SerializeField]
     private Transform slotParent;
 
+    [SerializeField]
+    private List<ItemData> items;
+    public List<ItemData> Items { get { return items; } }
+    [SerializeField]
     private List<SlotBase> slots;
+    public List<SlotBase> Slots { get { return slots; } }
 
     private void Awake()
     {
