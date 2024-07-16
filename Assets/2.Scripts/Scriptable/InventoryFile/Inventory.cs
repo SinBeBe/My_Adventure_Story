@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Inventory : InventoryBase
 {
-
     [SerializeField]
     private Transform slotParent;
 
