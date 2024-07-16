@@ -11,4 +11,8 @@ public class ItemData : ScriptableObject
     private Sprite itemImage;
     public Sprite ItemImage { get { return itemImage; } }
 
+    [SerializeField]
+    private int itemEnhancement;
+    public int ItemEnhancement { get { return itemEnhancement; } set { ItemEnhancement = value; } }
+
 }

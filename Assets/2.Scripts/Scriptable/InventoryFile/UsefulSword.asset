@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5714732a29a75d04ca21e71a00da8191, type: 3}
-  m_Name: TrashSword
+  m_Name: UsefulSword
   m_EditorClassIdentifier: 
-  itemName: TrashSword
-  itemImage: {fileID: 21300000, guid: 2ddf0348701148a4d8a7c6a0f7f146b3, type: 3}
+  itemName: UsefulSword
+  itemImage: {fileID: 21300000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
